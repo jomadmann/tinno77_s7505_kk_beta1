@@ -204,7 +204,7 @@ static int tp_err = 0;
 static int is_tp_sleeping = 0;
 // Jake.L, DATE20130527-01 END
 #endif
-#if 0//adair:¸ù¾İÆ½Ì¨²»Í¬Ñ¡Ôñ²»Í¬Î»µÄi2cµØÖ·
+#if 0//adair:æ ¹æ®å¹³å°ä¸åŒé€‰æ‹©ä¸åŒä½çš„i2cåœ°å€
 #define FW_ADDR_MSG21XX   (0xC4)
 #define FW_ADDR_MSG21XX_TP   (0x4C)
 #define FW_UPDATE_ADDR_MSG21XX   (0x92)
@@ -313,7 +313,7 @@ int __init register_unregister_chrdev_init(void)
 	pr_tp("<0>into register_unregister_chrdev_init\n");
 	mem_spvm = (char *)vmalloc(MEM_MALLOC_SIZE);  
 	res=register_chrdev(MEM_MAJOR,"my_char_dev",&mem_fops);
-	if(res)    //¡Á¡é2¨¢¨º¡ì¡ã¨¹
+	if(res)    //Ã—ï¿ 2Ã¡ÃªÂ§Â°Ã¼
 	{
 		unregister_chrdev(MEM_MAJOR,"my_char_dev"); 
 		pr_tp("<0>register char dev failed\n");
@@ -334,7 +334,7 @@ int __init register_unregister_chrdev_init(void)
  	      return -1;
  	}
 	pr_tp("<0>class create success\n");
-    	device_create(mem_class, NULL, MKDEV(MEM_MAJOR,MEM_MINOR), NULL, "my_char_dev");  //?¡ª????????¡§?????t????-3?????????????????o???
+    	device_create(mem_class, NULL, MKDEV(MEM_MAJOR,MEM_MINOR), NULL, "my_char_dev");  //?â€”????????Â¨?????t????-3?????????????????o???
 	pr_tp("<0>device create success\n");
 	pr_tp("<0>out register_unregister_chrdev_init\n");
 	return 0;
@@ -511,7 +511,7 @@ EXPORT_SYMBOL( msg2133_get_sensor_state);
 #define __FIRMWARE_UPDATE__
 #ifdef __FIRMWARE_UPDATE__
 
-/*adair:0777Îª´ò¿ªapkÉı¼¶¹¦ÄÜ£¬0664Îª¹Ø±ÕapkÉı¼¶¹¦ÄÜ£¬ÎŞĞè½«ºê__FIRMWARE_UPDATE__¹Ø±Õ*/
+/*adair:0777ä¸ºæ‰“å¼€apkå‡çº§åŠŸèƒ½ï¼Œ0664ä¸ºå…³é—­apkå‡çº§åŠŸèƒ½ï¼Œæ— éœ€å°†å®__FIRMWARE_UPDATE__å…³é—­*/
 #define CTP_AUTHORITY 0777//0664
 
 #define ENABLE_AUTO_UPDATA
@@ -554,7 +554,7 @@ void msg2133_ctpm_get_upg_ver_custom(void)
 #else
 #define TP_DEBUG(format, ...)
 #endif
-#if 0//adair:ÕıÊ½°æ±¾¹Ø±Õ
+#if 0//adair:æ­£å¼ç‰ˆæœ¬å…³é—­
 #define TP_DEBUG_ERR(format, ...)	printk(KERN_ERR "MSG2133_MSG21XXA_update_ERR***" format "\n", ## __VA_ARGS__)
 #else
 #define TP_DEBUG_ERR(format, ...)
@@ -569,11 +569,11 @@ static int FwDataCnt;
 struct class *firmware_class;
 struct device *firmware_cmd_dev;
 
-#define N_BYTE_PER_TIME (8)//adair:1024µÄÔ¼Êı,¸ù¾İÆ½Ì¨ĞŞ¸Ä
+#define N_BYTE_PER_TIME (8)//adair:1024çš„çº¦æ•°,æ ¹æ®å¹³å°ä¿®æ”¹
 #define UPDATE_TIMES (1024/N_BYTE_PER_TIME)
 
 
-/*adair:ÒÔÏÂ5¸öÒÔHal¿ªÍ·µÄº¯ÊıĞèÒª¸ù¾İÆ½Ì¨ĞŞ¸Ä*/
+/*adair:ä»¥ä¸‹5ä¸ªä»¥Halå¼€å¤´çš„å‡½æ•°éœ€è¦æ ¹æ®å¹³å°ä¿®æ”¹*/
 /*disable irq*/
 static void HalDisableIrq(void)
 {
@@ -3118,9 +3118,9 @@ static int __devinit tpd_probe(struct i2c_client *client, const struct i2c_devic
     }
 
 	//pr_tp("========probe==msta_power1==");
-	mt_eint_set_sens(CUST_EINT_TOUCH_PANEL_NUM, CUST_EINT_TOUCH_PANEL_SENSITIVE);
+	//mt_eint_set_sens(CUST_EINT_TOUCH_PANEL_NUM, CUST_EINT_TOUCH_PANEL_SENSITIVE);
 	//pr_tp("========probe==msta_power2==");
-	mt_eint_set_hw_debounce(CUST_EINT_TOUCH_PANEL_NUM, CUST_EINT_TOUCH_PANEL_DEBOUNCE_CN);
+	//mt_eint_set_hw_debounce(CUST_EINT_TOUCH_PANEL_NUM, CUST_EINT_TOUCH_PANEL_DEBOUNCE_CN);
 	//pr_tp("========probe==msta_power3==");
 	mt_eint_registration(CUST_EINT_TOUCH_PANEL_NUM, CUST_EINT_TOUCH_PANEL_TYPE, tpd_eint_interrupt_handler, 1);
 	//pr_tp("========probe==msta_power4==");

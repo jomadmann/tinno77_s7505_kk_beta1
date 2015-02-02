@@ -576,7 +576,8 @@ static u32 msdc_sd1_power(u32 on, MT65XX_POWER_VOLTAGE powerVolt)
 	   	  hwPowerDown_fpga();
 #else
     #if defined TINNO_ANDROID_S7505
-	hwPowerOn(MT65XX_POWER_LDO_VGP2, VOL_3300, "msdc");
+    	msdc_ldo_power(on, MT65XX_POWER_LDO_VGP2, powerVolt, &g_vgp);
+	//hwPowerOn(MT65XX_POWER_LDO_VGP2, VOL_3300, "msdc"); //source ics
     #else
     	msdc_ldo_power(on, MT65XX_POWER_LDO_VGP, powerVolt, &g_vgp);
     #endif
